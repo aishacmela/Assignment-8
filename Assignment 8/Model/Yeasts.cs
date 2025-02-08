@@ -12,7 +12,7 @@ namespace Assignment_8.Model
 		public string Type { get; set; }
 		public string FermentationTemperature { get; set; }
 		public string Description { get; set; }
-
+		
 	}
 
 

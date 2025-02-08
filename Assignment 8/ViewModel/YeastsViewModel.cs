@@ -36,17 +36,19 @@ namespace Assignment_8.ViewModel
 
 		public ICommand SaveCommand { get; }
 		public ICommand AddNewYeastCommand { get; }
+		
 
 		public YeastsViewModel()
 		{
 			_yeastService = new YeastService();
-			YeastsList = new ObservableCollection<Yeasts>(); // Initialize as an empty collection
-			CurrentYeast = new Yeasts(); // Initialize with a blank yeast profile
-
+			// Initialize as an empty collection
+			YeastsList = new ObservableCollection<Yeasts>(); 
+			// Initialize with a blank yeast profile
+			CurrentYeast = new Yeasts();
 			SaveCommand = new Command(async () => await SaveYeastAsync());
 			AddNewYeastCommand = new Command(AddNewYeast);
 
-			LoadYeastsAsync(); // Load saved yeasts on startup
+			LoadYeastsAsync(); 
 		}
 
 		// Load the list of yeasts from the service
@@ -69,7 +71,6 @@ namespace Assignment_8.ViewModel
 			// Save the updated list of yeasts
 			await _yeastService.SaveYeastsAsync(YeastsList);
 
-			// Show a success message
 			await Application.Current.MainPage.DisplayAlert("Success", "Yeast profile saved!", "OK");
 
 			// Clear the current yeast form for the user to add a new one
@@ -81,5 +82,7 @@ namespace Assignment_8.ViewModel
 		{
 			CurrentYeast = new Yeasts(); // Reset to a blank profile
 		}
+
+		
 	}
 }

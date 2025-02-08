@@ -24,7 +24,7 @@
         <!-- Save Button -->
         <Button Text="Save" Command="{Binding SaveCommand}" BackgroundColor="Blue" TextColor="White"/>
 
-        <!-- Add New Yeast Button -->
+        <!-- Add New Yeast -->
         <Button Text="Add New Yeast" Command="{Binding AddNewYeastCommand}" BackgroundColor="Green" TextColor="White" />
 
         <!-- ListView to Display Saved Yeasts -->
