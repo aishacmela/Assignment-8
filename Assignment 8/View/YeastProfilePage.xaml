@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment_8.View.YeastProfilePage"
+             xmlns:vm="clr-namespace:Assignment_8.ViewModel"
+             Title="YeastProfilePage"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- Input Fields for Current Yeast Profile -->
+        <Label Text="Yeast Name" />
+        <Entry Text="{Binding CurrentYeast.Name}" Placeholder="E.g. Saccharomyces Cereviceae" />
+
+        <Label Text="Type" />
+        <Entry Text="{Binding CurrentYeast.Type}" Placeholder="E.g. Fermentative Yeast" />
+
+        <Label Text="Fermentation Temperature" />
+        <Entry Text="{Binding CurrentYeast.FermentationTemperature}" Placeholder="E.g. 18-25°C" />
+
+        <Label Text="Description" />
+        <Editor Text="{Binding CurrentYeast.Description}" Placeholder="High Ethanol Tolerance"  />
+
+        <!-- Save Button -->
+        <Button Text="Save" Command="{Binding SaveCommand}" BackgroundColor="Blue" TextColor="White"/>
+
+        <!-- Add New Yeast Button -->
+        <Button Text="Add New Yeast" Command="{Binding AddNewYeastCommand}" BackgroundColor="Green" TextColor="White" />
+
+        <!-- ListView to Display Saved Yeasts -->
+        <Label Text="Saved Yeasts" FontAttributes="Bold" />
+        <ListView ItemsSource="{Binding YeastsList}" VerticalOptions="FillAndExpand" >
+            <ListView.ItemTemplate HeightRequest="300">
+                <DataTemplate>
+                    <ViewCell  >
+                        <StackLayout >
+                            <Label Text="{Binding Name}" FontSize="18" />
+                            <Label Text="{Binding Description}" FontSize="14" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>
